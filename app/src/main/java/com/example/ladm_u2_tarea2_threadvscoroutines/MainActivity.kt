@@ -2,34 +2,48 @@ package com.example.ladm_u2_tarea2_threadvscoroutines
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.ladm_u2_tarea2_threadvscoroutines.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
     var equiposFutbol = arrayOf("Barcelona","Arsenal","PSG","Chivas","Juventus","Manchester City")
-    var h = HiloBasico(this,equiposFutbol)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        binding.hiloBtn.setOnClickListener {
-            h.start()
+
+        hilo_btn.setOnClickListener {
+            try{
+                HiloBasico(this).start()
+            }catch (e: Exception){}
         }
-
+        corr_btn.setOnClickListener {
+            CorrutinaBasica(equiposFutbol)
+        }
 
     }
+
+    fun CorrutinaBasica (lista : Array<String>) = GlobalScope.launch {
+        for(l in lista){
+            runOnUiThread {
+                corr_texto.text = corr_texto.text.toString() + "\n $l"
+            }
+        }
+        corr_texto.text = corr_texto.text.toString()+"\n FIN DE LA LISTA"
+    }
+
 }
 
-class HiloBasico (p : MainActivity, lista : Array<String>) : Thread() {
+class HiloBasico (p : MainActivity) : Thread() {
     var p = p
-    var lista = lista
+
     override fun run() {
         super.run()
-        for(l in lista){
-            p.binding.hiloTexto.text = p.binding.hiloTexto.text.toString()+"\n"+l
+        for(l in p.equiposFutbol){
+            p.hilo_texto.text = p.hilo_texto.text.toString()+"\n $l"
         }
-        p.binding.hiloTexto.text = p.binding.hiloTexto.text.toString()+"\n FIN DE LA LISTA"
+        p.hilo_texto.text = p.hilo_texto.text.toString()+"\n FIN DE LA LISTA"
     }
 }
