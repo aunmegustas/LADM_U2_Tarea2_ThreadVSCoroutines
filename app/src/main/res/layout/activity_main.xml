@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#880E4F"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Corrutina Equipos Futbol:"
+        android:id="@+id/corr_texto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#880E4F"
+        android:text="Ejecutar"
+        android:id="@+id/corr_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#1A237E"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Hilo Equipos Futbol:"
+        android:id="@+id/hilo_texto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#1A237E"
+        android:text="Ejecutar"
+        android:id="@+id/hilo_btn"/>
+
+</LinearLayout>
