@@ -28,6 +28,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textColor="#BF360C"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Corrutina RunBlocking Equipos Futbol:"
+        android:id="@+id/corr_runBlocking_texto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#BF360C"
+        android:text="Ejecutar"
+        android:id="@+id/corr_runBlocking_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:textColor="#1A237E"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -41,5 +59,10 @@
         android:backgroundTint="#1A237E"
         android:text="Ejecutar"
         android:id="@+id/hilo_btn"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prueba"/>
 
 </LinearLayout>
